@@ -28,10 +28,6 @@ jobs:
         working-directory: starter/backend
         run: pipenv install --dev
 
-      - name: Install flake8
-        working-directory: starter/backend
-        run: pipenv run pip install flake8
-
       - name: Run lint
         working-directory: starter/backend
         run: pipenv run lint
@@ -54,10 +50,6 @@ jobs:
       - name: Install dependencies
         working-directory: starter/backend
         run: pipenv install --dev
-
-      - name: Install flake8
-        working-directory: starter/backend
-        run: pipenv run pip install flake8
 
       - name: Run tests
         working-directory: starter/backend

@@ -43,17 +43,24 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-
       - name: Install pipenv
-        run: pip install pipenv
-  
-      - name: Install dependencies
-        working-directory: starter/backend
-        run: pipenv install --dev
+         run: pip install pipenv
 
-      - name: Run tests
-        working-directory: starter/backend
-        run: pipenv run test
+- name: Install dependencies
+  working-directory: starter/backend
+  run: pipenv install --dev
+
+- name: Install flake8
+  working-directory: starter/backend
+  run: pipenv run pip install flake8
+
+- name: Run lint
+  working-directory: starter/backend
+  run: pipenv run lint
+
+- name: Run tests
+  working-directory: starter/backend
+  run: pipenv run test
 
   build:
     runs-on: ubuntu-latest
